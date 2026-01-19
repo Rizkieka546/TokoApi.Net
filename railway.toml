@@ -7,7 +7,3 @@ build = "dotnet restore && dotnet publish TokoApi.csproj -c Release -o out --no-
 
 [start]
 cmd = "dotnet out/TokoApi.dll"
-
-[deploy]
-# Memastikan Railway tahu port yang digunakan
-healthCheckPath = "/health" # Jika Anda punya endpoint health check

@@ -4,7 +4,8 @@ public class SummaryReportResponse
 {
     public int TotalTransactions { get; set; }
     public decimal TotalRevenue { get; set; }
-    public List<TopProductItem> TopProducts { get; set; } = new List<T>();
+    public List<TopProductItem> TopProducts { get; set; } 
+        = new List<TopProductItem>();
 }
 
 public class TopProductItem
