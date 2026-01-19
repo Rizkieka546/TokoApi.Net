@@ -10,7 +10,7 @@ public class TransactionDetailResponse
     public string PaymentMethod { get; set; } = null!;
     public DateTime Date { get; set; }
 
-    public List<TransactionItemDetail> Items { get; set; } = [];
+    public List<TransactionItemDetail> Items { get; set; } = new List<T>();
 }
 
 public class TransactionItemDetail
