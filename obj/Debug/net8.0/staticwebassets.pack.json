@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Rizki Eka Handoyo\\C#\\TokoApi\\wwwroot\\images\\products\\793d04e8-e6fe-4775-9bee-92a33537cf1d.png",
+      "PackagePath": "staticwebassets\\images\\products\\793d04e8-e6fe-4775-9bee-92a33537cf1d.png"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TokoApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.TokoApi.props",
+      "PackagePath": "build\\TokoApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.TokoApi.props",
+      "PackagePath": "buildMultiTargeting\\TokoApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.TokoApi.props",
+      "PackagePath": "buildTransitive\\TokoApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

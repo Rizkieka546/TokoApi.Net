@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "UExGwHt6Ij/4iLQG0THBfXDi7f2aBbpSIj0zN4aCmhY=",
+  "Source": "TokoApi",
+  "BasePath": "_content/TokoApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "TokoApi\\wwwroot",
+      "Source": "TokoApi",
+      "ContentRoot": "D:\\Rizki Eka Handoyo\\C#\\TokoApi\\wwwroot\\",
+      "BasePath": "_content/TokoApi",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Rizki Eka Handoyo\\C#\\TokoApi\\wwwroot\\images\\products\\793d04e8-e6fe-4775-9bee-92a33537cf1d.png",
+      "SourceId": "TokoApi",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Rizki Eka Handoyo\\C#\\TokoApi\\wwwroot\\",
+      "BasePath": "_content/TokoApi",
+      "RelativePath": "images/products/793d04e8-e6fe-4775-9bee-92a33537cf1d.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\793d04e8-e6fe-4775-9bee-92a33537cf1d.png"
+    }
+  ]
+}
