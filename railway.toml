@@ -2,7 +2,12 @@
 builder = "nixpacks"
 
 [build.commands]
-build = "dotnet restore TokoApi.csproj && dotnet publish TokoApi.csproj -c Release -o out"
+# Menambahkan --no-self-contained untuk memperkecil ukuran dan menghindari konflik output
+build = "dotnet restore && dotnet publish TokoApi.csproj -c Release -o out --no-self-contained"
 
 [start]
 cmd = "dotnet out/TokoApi.dll"
+
+[deploy]
+# Memastikan Railway tahu port yang digunakan
+healthCheckPath = "/health" # Jika Anda punya endpoint health check
