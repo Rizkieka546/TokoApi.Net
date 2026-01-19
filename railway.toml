@@ -1,0 +1,8 @@
+[build]
+builder = "nixpacks"
+
+[build.commands]
+build = "dotnet restore TokoApi.csproj && dotnet publish TokoApi.csproj -c Release -o out"
+
+[start]
+cmd = "dotnet out/TokoApi.dll"
