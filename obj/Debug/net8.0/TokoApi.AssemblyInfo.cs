@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TokoApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+be1056eee22ee39d09eff6cbf33939e27f489ed0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a9c55a83f63cd8bfd606106ed9624efd39cf87b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("TokoApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TokoApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
