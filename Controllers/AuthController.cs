@@ -29,4 +29,16 @@ public class AuthController : ControllerBase
         await _service.Logout(Response);
         return Ok(ApiResponse<string>.Ok(null, "Logout berhasil"));
     }
+
+    [HttpGet("me")]
+    public async Task<IActionResult> Me()
+    {
+        var result = await _service.GetMe(Request);
+
+        if (!result.Success)
+            return Unauthorized(result);
+
+        return Ok(result);
+    }
+
 }

@@ -36,12 +36,16 @@ public class AuthService
 
         var jwt = GenerateJwt(user);
 
+        bool isProduction = _config["ASPNETCORE_ENVIRONMENT"] == "Production";
+
         response.Cookies.Append("access_token", jwt, new CookieOptions
         {
             HttpOnly = true,
-            Secure = true,
-            SameSite = SameSiteMode.None,
-            Expires = DateTime.UtcNow.AddMinutes(_config.GetValue<int>("Jwt:ExpireMinutes"))
+            Secure = isProduction,                
+            SameSite = SameSiteMode.None,         
+            Expires = DateTime.UtcNow.AddMinutes(
+                _config.GetValue<int>("Jwt:ExpireMinutes")
+            )
         });
 
         var userInfo = new UserInfoResponse
@@ -57,7 +61,14 @@ public class AuthService
 
     public Task Logout(HttpResponse response)
     {
-        response.Cookies.Delete("access_token");
+        bool isProduction = _config["ASPNETCORE_ENVIRONMENT"] == "Production";
+
+        response.Cookies.Delete("access_token", new CookieOptions
+        {
+            Secure = isProduction,
+            SameSite = SameSiteMode.None
+        });
+
         return Task.CompletedTask;
     }
 
@@ -81,10 +92,45 @@ public class AuthService
             issuer: _config["Jwt:Issuer"],
             audience: _config["Jwt:Audience"],
             claims: claims,
-            expires: DateTime.UtcNow.AddMinutes(_config.GetValue<int>("Jwt:ExpireMinutes")),
+            expires: DateTime.UtcNow.AddMinutes(
+                _config.GetValue<int>("Jwt:ExpireMinutes")
+            ),
             signingCredentials: creds
         );
 
         return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+
+    public async Task<ApiResponse<UserInfoResponse>> GetMe(HttpRequest request)
+    {
+        if (!request.Cookies.TryGetValue("access_token", out var token))
+            return ApiResponse<UserInfoResponse>.Fail("Unauthorized");
+
+        var handler = new JwtSecurityTokenHandler();
+
+        try
+        {
+            var jwt = handler.ReadJwtToken(token);
+
+            var userId = jwt.Claims.First(x => x.Type == JwtRegisteredClaimNames.Sub).Value;
+
+            var user = await _db.Users.FindAsync(Guid.Parse(userId));
+            if (user == null)
+                return ApiResponse<UserInfoResponse>.Fail("Unauthorized");
+
+            var userInfo = new UserInfoResponse
+            {
+                Id = user.Id,
+                Username = user.Username,
+                Email = user.Email,
+                Role = user.Role
+            };
+
+            return ApiResponse<UserInfoResponse>.Ok(userInfo);
+        }
+        catch
+        {
+            return ApiResponse<UserInfoResponse>.Fail("Unauthorized");
+        }
     }
 }

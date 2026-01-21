@@ -122,3 +122,4 @@ D:\Rizki Eka Handoyo\C#\TokoApi\obj\Debug\net8.0\ref\TokoApi.dll
 D:\Rizki Eka Handoyo\C#\TokoApi\bin\Debug\net8.0\TokoApi.staticwebassets.runtime.json
 D:\Rizki Eka Handoyo\C#\TokoApi\bin\Debug\net8.0\CloudinaryDotNet.dll
 D:\Rizki Eka Handoyo\C#\TokoApi\bin\Debug\net8.0\Newtonsoft.Json.dll
+D:\Rizki Eka Handoyo\C#\TokoApi\obj\Debug\net8.0\TokoApi.sourcelink.json
