@@ -1,0 +1,13 @@
+[build]
+builder = "nixpacks"
+
+[build.phases.setup]
+# Memastikan SDK .NET 8 terpasang (Railway menggunakan Nixpacks)
+cmds = ["curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel 8.0"]
+
+[build.phases.build]
+# Menjalankan publish langsung ke file csproj
+cmds = ["dotnet publish TokoApi.csproj -c Release -o out"]
+
+[deploy]
+start_cmd = "ASPNETCORE_URLS=http://0.0.0.0:${PORT:-3000} ./out/TokoApi"
