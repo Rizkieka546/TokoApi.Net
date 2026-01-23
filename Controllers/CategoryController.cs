@@ -8,17 +8,16 @@ namespace TokoApi.Controllers;
 
 [ApiController]
 [Route("api/categories")]
-[Authorize(Roles = "admin")]
 public class CategoryController : ControllerBase
 {
     private readonly CategoryService _service;
-
     public CategoryController(CategoryService service)
     {
         _service = service;
     }
 
     [HttpGet]
+    [Authorize]
     public async Task<IActionResult> GetAll(
         [FromQuery] int page = 1,
         [FromQuery] int pageSize = 10,
@@ -29,6 +28,8 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "admin")]
+
     public async Task<IActionResult> Create(CategoryRequest request)
     {
         var result = await _service.Create(request);
@@ -36,6 +37,7 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPut("{id}")]
+    [Authorize(Roles = "admin")]
     public async Task<IActionResult> Update(Guid id, CategoryRequest request)
     {
         var result = await _service.Update(id, request);
@@ -43,6 +45,8 @@ public class CategoryController : ControllerBase
     }
 
     [HttpDelete("{id}")]
+    [Authorize(Roles = "admin")]
+
     public async Task<IActionResult> Delete(Guid id)
     {
         var result = await _service.Delete(id);

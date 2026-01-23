@@ -16,7 +16,6 @@ public class TransactionService
         _db = db;
     }
 
-    // CREATE transaksi (kasir)
     public async Task<ApiResponse<string>> Create(Guid kasirId, TransactionCreateRequest request)
     {
         if (request.Items.Count == 0)
@@ -70,7 +69,6 @@ public class TransactionService
         return ApiResponse<string>.Ok(null, "Transaksi berhasil disimpan");
     }
 
-    // GET list transaksi (admin)
     public async Task<ApiResponse<PagedResult<TransactionResponse>>> GetAll(
         int page, int pageSize)
     {
@@ -103,7 +101,6 @@ public class TransactionService
         });
     }
 
-    // GET detail transaksi
     public async Task<ApiResponse<TransactionDetailResponse>> GetById(Guid id)
     {
         var transaction = await _db.Transactions
