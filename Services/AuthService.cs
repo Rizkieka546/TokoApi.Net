@@ -41,8 +41,8 @@ public class AuthService
         response.Cookies.Append("access_token", jwt, new CookieOptions
         {
             HttpOnly = true,
-            Secure = false,                
-            SameSite = SameSiteMode.Lax,         
+            Secure = isProduction,                
+            SameSite = SameSiteMode.None,         
             Expires = DateTime.UtcNow.AddMinutes(
                 _config.GetValue<int>("Jwt:ExpireMinutes")
             )
@@ -65,8 +65,8 @@ public class AuthService
 
         response.Cookies.Delete("access_token", new CookieOptions
         {
-            Secure = false,
-            SameSite = SameSiteMode.Lax
+            Secure = isProduction,
+            SameSite = SameSiteMode.None
         });
 
         return Task.CompletedTask;
